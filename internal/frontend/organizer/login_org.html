@@ -1,0 +1,48 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LOGIN AS ORGANIZATION</title>
+        <style>
+            header {
+                margin: 0;
+                display: block;
+                text-align: center;
+                background-image: url("https://unsplash.com/photos/a-blue-sky-with-some-clouds--sTwytNnqWw");
+            }
+            div {
+                margin-bottom: 15px;
+                margin-top: 10px;
+            }
+            a {
+                margin-top: 10px;
+                text-decoration: none;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <form action="http://localhost:8080/auth/login/organizer" method="post">
+                <h2>Login as organization</h2>
+
+                <label>Name of organization:</label>
+                <div>
+                    <input name="org_name" type="text" placeholder="Enter the name" required>
+                </div>
+
+                <label>Organization ID</label>
+                <div>
+                    <input name="org_id" type="text" placeholder="Enter the ID" required>
+                </div>
+                <button type="submit">LOGIN</button>
+
+                <div>
+                    <a href="http://127.0.0.1:3000/internal/frontend/organizer/register_org.html">Dont register your organization? Do it now!</a>
+                </div>
+            </form>
+        </header>
+    </body>
+
+</html>
