@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            header {
+                margin: 0 auto;
+                display: block;
+                text-align: center;
+            }
+            label {
+                display: block;
+                margin-top: 1rem;
+            }
+            input {
+                margin-bottom: 1rem;
+                margin-top: 6px;
+            }
+            button {
+                margin: 0 auto;
+                display: block;
+            }
+            .home {
+                margin-top: 25px;
+                color: darkgreen;
+            }
+            a {
+                display: block;
+                text-decoration: none;
+                text-align: center;
+            }
+        </style>
+        <title>SIGN UP</title>
+    </head>
+    <body>
+        <header>
+            <h1>Sign Up!</h1>
+            <form class="form_auth_style" action="/auth/register/participant/check" method="post">
+                    <label>Your Username:</label>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        label {
-            display: block;
-            margin-top: 1rem;
-        }
-        input {
-            display: block;
-            margin-bottom: 1rem;
-        }
-        a {
-          text-decoration: none;
-        }
-    </style>
-    <title>SIGN UP</title>
-</head>
-<body>
-    <div class="form_auth_block">
-        <div class="form_auth_block_content">
-          <h1 class="form_auth_block_head_text"><center>Sign Up!</center></h1>
-          <form class="form_auth_style" action="http://localhost:8080/auth/register/participant" method="post">
-            <label>Your Username:</label>
-            <input type="text" name="username" placeholder="Create username" required >
+                    <input type="text" name="username" placeholder="Create username" required >
 
-            <label>Your password (8 chars minimum):</label>
-            <input type="password" name="password" placeholder="Create password"
-            maxlength="12" pattern=".{8,12}" required >
+                    <label>Your password (8 chars minimum):</label>
 
-            <button class="form_auth_button" type="submit" name="auth_submit">SIGN UP</button>
-          </form>
-        </div>
+                    <input type="password" name="password" placeholder="Create password"
+                    maxlength="12" pattern=".{8,12}" required >
 
-        <a href=http://127.0.0.1:3000/internal/frontend/participant/login_part.html>Have an account? Sign in!</a>
-      </div>
-</body>
+                    <button class="form_auth_button" type="submit">SIGN UP</button>
+            </form>
+
+            <a href="/auth/login/participant">Have an account? Sign in!</a>
+            <a class="home" href="/home">ZENEVENT</a>
+        </header>
+    </body>
 </html>

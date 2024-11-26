@@ -1,0 +1,64 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+        <title>Zenevents - events planning service</title>
+        <style>
+            body {
+                margin: 0;
+                background-color: antiquewhite;
+            }
+            header {
+                padding: 20px;
+                margin-top: 0;
+                background-color: #12343b;
+            }
+            a {
+                font-family: "Gravitas One", serif;
+                font-weight: 400;
+                font-style: normal;
+                display: inline-block;
+                text-decoration: none;
+                color: #c89666;
+                font-size: 20px;
+            }
+            .show-events, .profile, .sign-in, .info {
+                margin-left: 8rem;
+            }
+            .orgs {
+                font-size: 4rem;
+                margin-left: 20px;
+            }
+            .marg-t {
+                margin-top: 2rem;
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <a class="gravitas-one" href="/">
+                <h1>ZENEVENT<small><small><small> ෴</small></small></small></h1>
+            </a>
+            <a class="show-events" href="/events">
+                <h2>Events</h2>
+            </a>
+
+            <a class="info" href="/info/organizers/from-home"><h2>For organizers</h2></a>
+
+            {{ if .IsLogin }}
+            <a href="/profile" class="profile"><h2>Profile</h2></a>
+            <a href="/auth/logout"><h2>/LogOut</h2></a>
+            {{ else }}
+            <a href="/auth/login/participant" class="sign-in"><h2>Sign In</h2></a>
+            {{ end }}
+        </header>
+        <div class="marg-t">
+            <a href="">ALL EVENTS</a>
+        </div>
+    </body>
+</html>

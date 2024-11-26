@@ -14,7 +14,11 @@
                 margin-bottom: 15px;
                 margin-top: 10px;
             }
+            .home {
+                color: darkgreen;
+            }
             a {
+                display: block;
                 margin-top: 10px;
                 text-decoration: none;
             }
@@ -24,7 +28,7 @@
 
     <body>
         <header>
-            <form action="http://localhost:8080/auth/login/organizer" method="post">
+            <form action="/auth/login/organizer/check-org" method="post">
                 <h2>Login as organization</h2>
 
                 <label>Name of organization:</label>
@@ -38,9 +42,10 @@
                 </div>
                 <button type="submit">LOGIN</button>
 
-                <div>
-                    <a href="http://127.0.0.1:3000/internal/frontend/organizer/register_org.html">Dont register your organization? Do it now!</a>
-                </div>
+
+                <a title="SIGN UP" href="/auth/register/organizer">Don't register your organization? Do it now!</a>
+
+                <a title="Zen of organization :D" class="home" href="/home">ZENEVENT</a>
             </form>
         </header>
     </body>

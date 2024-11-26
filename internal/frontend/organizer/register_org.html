@@ -4,6 +4,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ORGANIZATION REGISTER</title>
         <style>
+            header {
+                margin: 0 auto;
+                text-align: center;
+            }
             button {
                 display: block;
                 margin-top: 1rem;
@@ -12,19 +16,26 @@
                 display: block;
                 margin-top: 8px;
             }
+            button {
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+            .home {
+                margin-top: 10px;
+                color: darkgreen;
+            }
             a {
+                display: block;
                 text-decoration: none;
             }
         </style>
     </head>
 
     <body>
-        <div class="individual_auth">
-            <form name="register_org" action="http://localhost:8080/auth/register/organizer" method="post">
+        <header class="individual_auth">
+            <form name="register_org" action="/auth/register/organizer/check-org" method="post">
 
-                <div>
-                    <label>Your e-mail:</label>
-                </div>
+                <label>Your e-mail:</label>
                 <input type="text" name="ind_email" placeholder="Enter an e-mail" required>
 
                 <div>
@@ -36,11 +47,13 @@
                     <label>ID of organization:</label>
                 </div>
                 <input type="text" name="org_id" placeholder="Enter an ID" required>
-
-                <button type="submit" name="auth_org_submit">BE AN ORGANIZER</button>
+                    <button class="reg" type="submit">BE AN ORGANIZER</button>
             </form>
-            <a href="http://127.0.0.1:3000/internal/frontend/organizer/login_org.html">Have a registered organization? Login!</a>
-        </div>
+
+            <a href="/auth/login/organizer">Have a registered organization? Login!</a>
+
+            <a class="home" title="HOME" href="/home">ZENEVENT</a>
+        </header>
     </body>
 
 </html>

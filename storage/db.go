@@ -47,9 +47,7 @@ func AddPart(user structs.User) error {
 		return err
 	}
 
-	db.Table(structs.Role1+"s").Create(&user)
-
-	return nil
+	return db.Table(structs.Role1+"s").Create(&user).Error
 }
 
 func AddOrg(org structs.Organizer) error {
@@ -59,9 +57,7 @@ func AddOrg(org structs.Organizer) error {
 		return err
 	}
 
-	db.Table(structs.Role2+"s").Create(&org)
-
-	return nil
+	return db.Table(structs.Role2+"s").Create(&org).Error
 }
 
 func IsValidUser(user structs.User) error {

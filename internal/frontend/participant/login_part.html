@@ -1,44 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        button {
-            display: block;
-            margin-top: 15px;
-        }
-        a {
-            text-decoration: none;
-        }
-    </style>
-    <title>SIGN IN</title>
-</head>
-<body>
-    <div class="form_auth_block">
-        <div class="form_auth_block_content">
-          <h1 class="form_auth_block_head_text"><center>Sign in!</center></h1>
-          <form class="form_auth_style" action="http://localhost:8080/auth/login/participant" method="post">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            button {
+                display: block;
+                margin-top: 15px;
+            }
+            header {
+                text-align: center;
+            }
+            button {
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+            .home {
+                margin-top: 25px;
+                color: darkgreen;
+            }
+            a {
+                text-decoration: none;
+                display: block;
+                margin-top: 10px;
+            }
+        </style>
+        <title>SIGN IN</title>
+    </head>
+    <body>
+        <header>
+            <div class="form_auth_block_content">
+                <h1>Sign In!</h1>
+                <form class="form_auth_style" action="/auth/login/participant/check" method="post">
+                    <div class="username">
+                        <label>Your username:</label>
+                    </div>
 
-            <div class="username">
-                <label>Your username:</label>
+                    <input type="text" name="username" placeholder="Username" required >
+
+                    <div class="password">
+                        <label>Your password:</label>
+                    </div>
+
+                    <input type="password" name="password" placeholder="Password"
+                    maxlength="12" pattern=".{8,12}" required >
+
+                    <button class="form_auth_button" type="submit" name="auth_submit">LOGIN</button>
+                </form>
             </div>
 
-            <input type="text" name="username" placeholder="Username" required >
-
-            <div class="password">
-                <label>Your password:</label>
-            </div>
-
-            <input type="password" name="password" placeholder="Password"
-            maxlength="12" pattern=".{8,12}" required >
-
-            <button class="form_auth_button" type="submit" name="auth_submit">LOGIN</button>
-          </form>
-        </div>
-
-        <a href="http://127.0.0.1:3000/internal/frontend/participant/register_part.html">Dont have an account? Sign up!</a>
-      </div>
-</body>
+            <a href="/auth/register/participant">Don't have an account? Sign up!</a>
+            <a class="home" href="/home">ZENEVENT</a>
+        </header>
+    </body>
 </html>

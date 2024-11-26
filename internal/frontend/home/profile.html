@@ -1,0 +1,71 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Profile</title>
+        <style>
+            .username, .org-name {
+                background-color: darkgreen;
+                margin: 0 auto;
+                width: 300;
+                height: 40;
+                font-size: 28;
+            }
+            .org-name {
+                width: 300;
+                height: 65;
+                margin: 0 auto;
+                background-color: darkslateblue;
+            }
+            .org, .part {
+                margin: 0 auto;
+                width: 500;
+                background-color: rgb(93, 78, 195);
+            }
+            .part {
+                width: 500;
+                margin: 0 auto;
+                background-color: green;
+            }
+            h4 {
+                font-size: 25;
+                height: 34;
+                width: 200;
+                background-color: darkgrey;
+                margin: 0 auto;
+            }
+            body {
+                background-color: bisque;
+            }
+            header {
+                text-align: center;
+                margin: 0 auto;
+            }
+            .member {
+                height: 150;
+                width: 120;
+            }
+            .organizer {
+                height: 150;
+                width: 160;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            {{ if .IsParticipant }}
+            <img class="member" src="https://www.ks.uiuc.edu/Services/Seminar/speakerimage/avatar.png" alt="Participant-image">
+            <div>
+                <h2 class="username">Username: {{ .Name }}<h4>[Participant]</h4></h2>
+                <h3 class="part">Participated events: NULL</h3>
+            </div>
+            {{ else }}
+            <img class="organizer" src="https://cdn1.iconfinder.com/data/icons/man-user-human-person-profile-business-avatar/100/17-1User-3-1024.png" alt="Organizer-image">
+            <div>
+                <h2 class="org-name">Name of organization: {{ .Name }}<h4>[Organization]</h4></h2>
+                <h3 class="org">Helded events: NULL</h3>
+            </div>
+            {{ end }}
+        </header>
+    </body>
+</html>
