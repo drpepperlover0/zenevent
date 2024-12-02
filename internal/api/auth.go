@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func (h *Handler) SignUp(c echo.Context) error {
+func (h *AuthHandler) SignUp(c echo.Context) error {
 
 	reg_html, err := os.ReadFile("internal/frontend/participant/register_part.html")
 	if err != nil {
@@ -20,12 +20,11 @@ func (h *Handler) SignUp(c echo.Context) error {
 	return c.HTML(http.StatusOK, string(reg_html))
 }
 
-func (h *Handler) RegCheckUser(c echo.Context) error {
+func (h *AuthHandler) RegCheckUser(c echo.Context) error {
 
 	user := structs.User{
 		Username: c.Request().FormValue("username"),
 		Password: c.Request().FormValue("password"),
-		Role:     structs.Role1,
 	}
 
 	if err := storage.AddPart(user); err != nil {
@@ -36,7 +35,7 @@ func (h *Handler) RegCheckUser(c echo.Context) error {
 	return c.Redirect(http.StatusPermanentRedirect, "/auth/login/participant/check?to_login=true")
 }
 
-func (h *Handler) LogIn(c echo.Context) error {
+func (h *AuthHandler) LogIn(c echo.Context) error {
 
 	login_html, err := os.ReadFile("internal/frontend/participant/login_part.html")
 	if err != nil {
@@ -46,7 +45,7 @@ func (h *Handler) LogIn(c echo.Context) error {
 	return c.HTML(http.StatusOK, string(login_html))
 }
 
-func (h *Handler) LoginCheckUser(c echo.Context) error {
+func (h *AuthHandler) LoginCheckUser(c echo.Context) error {
 
 	user := structs.User{
 		Username: c.Request().FormValue("username"),
@@ -69,7 +68,7 @@ func (h *Handler) LoginCheckUser(c echo.Context) error {
 	c.SetCookie(&http.Cookie{
 		Name:  "token",
 		Value: userToken,
-		Path: "/",
+		Path:  "/",
 	})
 
 	if err := c.Redirect(http.StatusSeeOther, "/"); err != nil {
@@ -81,7 +80,7 @@ func (h *Handler) LoginCheckUser(c echo.Context) error {
 	return nil
 }
 
-func (h *Handler) SignUpOrg(c echo.Context) error {
+func (h *AuthHandler) SignUpOrg(c echo.Context) error {
 
 	regOrg_html, err := os.ReadFile("internal/frontend/organizer/register_org.html")
 	if err != nil {
@@ -91,7 +90,7 @@ func (h *Handler) SignUpOrg(c echo.Context) error {
 	return c.HTML(http.StatusOK, string(regOrg_html))
 }
 
-func (h *Handler) RegCheckOrg(c echo.Context) error {
+func (h *AuthHandler) RegCheckOrg(c echo.Context) error {
 
 	org := structs.Organizer{
 		IndividEmail: c.FormValue("ind_email"),
@@ -106,7 +105,7 @@ func (h *Handler) RegCheckOrg(c echo.Context) error {
 	return c.Redirect(http.StatusPermanentRedirect, "/auth/login/organizer/check-org?to_login=true")
 }
 
-func (h *Handler) LogInOrg(c echo.Context) error {
+func (h *AuthHandler) LogInOrg(c echo.Context) error {
 
 	loginOrg_html, err := os.ReadFile("internal/frontend/organizer/login_org.html")
 	if err != nil {
@@ -116,7 +115,7 @@ func (h *Handler) LogInOrg(c echo.Context) error {
 	return c.HTML(http.StatusOK, string(loginOrg_html))
 }
 
-func (h *Handler) LoginCheckOrg(c echo.Context) error {
+func (h *AuthHandler) LoginCheckOrg(c echo.Context) error {
 
 	org := structs.Organizer{
 		Name: c.FormValue("org_name"),
@@ -136,7 +135,7 @@ func (h *Handler) LoginCheckOrg(c echo.Context) error {
 	c.SetCookie(&http.Cookie{
 		Name:  "token",
 		Value: orgToken,
-		Path: "/",
+		Path:  "/",
 	})
 
 	return c.Redirect(http.StatusSeeOther, "/")
@@ -149,7 +148,7 @@ func SmartRedirect(c echo.Context, isRedirect string, role string) error {
 	return c.Redirect(http.StatusSeeOther, "/auth/login/"+role)
 }
 
-func (h *Handler) LogOut(c echo.Context) error {
+func (h *AuthHandler) LogOut(c echo.Context) error {
 
 	cookie := &http.Cookie{
 		Name:     "token",

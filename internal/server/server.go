@@ -5,8 +5,7 @@ import (
 	"github.com/drpepperlover0/storage"
 )
 
-type Server struct {
-}
+type Server struct {}
 
 func NewServer() *Server {
 	return &Server{}

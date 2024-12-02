@@ -2,9 +2,88 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/3652/3652527.png" />
         <title>ZENEVENT(EVENTS)</title>
+        <style>
+            body {
+                margin: 0;
+                background-image: url("https://images.hdqwalls.com/wallpapers/dark-black-sand-texture-8k-p8.jpg");
+                background-size: 100%;
+                font-family: "Gravitas One", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+            .zenevent {
+                height: 130px;
+                color: #a0a0a0;
+                font-size: 40px;
+                text-decoration: none;
+            }
+            .cards-categories {
+                color: #c4c3c3;
+                background-color: rgb(10, 11, 10);
+                margin: 0 auto;
+                width: 100rem;
+                height: 100%;
+                font-size: 30;
+                text-align: center;
+                display: block;
+            }
+            .event-card {
+                background-color: #c4c3c3;
+                margin-bottom: 40px;
+                margin: 0 auto;
+                width: 300px;
+                height: 260px;
+                border-radius: 15px;
+                text-align: center;
+            }
+            .theme-party {
+                text-decoration: none;
+                color: #9847d6;
+            }
+            .quest {
+                text-decoration: none;
+                color: maroon;
+            }
+            #left {
+                float: left;
+                margin-left: 4em;
+                width: 35%;
+                overflow: hidden;
+                }
+            #right {
+                margin-right: 4em;
+                width: 35%;
+                overflow: hidden;
+                }
+        </style>
     </head>
     <body>
-        
+        <header style="background-color: #101010; padding: 35px;">
+            <div class="header-home" style="text-align: center;">
+                <a class="zenevent" href="/">
+                    ZENEVENT<small><small><small> ෴</small></small></small>
+                </a>
+            </div>
+        </header>
+        <div class="cards-categories">
+            Choose the event you like
+            <div id="wrapper">
+                <div id="left" class="event-card">
+                    <a class="theme-party" href="/events/theme_party">
+                        <h2>Theme Parties</h2>
+                    </a>
+                </div>
+                <div id="right" class="event-card">
+                    <a class="quest" href="/events/quests">
+                        <h2>Quests</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

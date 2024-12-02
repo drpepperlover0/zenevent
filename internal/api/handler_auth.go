@@ -2,10 +2,10 @@ package api
 
 import "regexp"
 
-type Handler struct{}
+type AuthHandler struct{}
 
-func NewHandler() *Handler {
-	return &Handler{}
+func NewAuthHandler() *AuthHandler {
+	return &AuthHandler{}
 }
 
 func ValidateEmail(email string) bool {

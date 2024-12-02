@@ -1,13 +1,14 @@
-package api
+package home
 
 import (
 	"html/template"
 	"net/http"
 
+	"github.com/drpepperlover0/internal/api"
 	"github.com/labstack/echo/v4"
 )
 
-func (h *Handler) ShowHome(c echo.Context) error {
+func (h *HomeHandler) ShowHome(c echo.Context) error {
 
 	login := struct {
 		IsLogin bool
@@ -24,14 +25,14 @@ func (h *Handler) ShowHome(c echo.Context) error {
 	return tmp.Execute(c.Response().Writer, login)
 }
 
-func (h *Handler) Profile(c echo.Context) error {
+func (h *HomeHandler) Profile(c echo.Context) error {
 
 	tokenString, err := c.Request().Cookie("token")
 	if err != nil {
 		return c.String(http.StatusInternalServerError, err.Error())
 	}
 
-	name, err := ParseNameJWT(tokenString.Value)
+	name, err := api.ParseNameJWT(tokenString.Value)
 	if err != nil {
 		return c.String(http.StatusInternalServerError, err.Error())
 	}
@@ -44,7 +45,7 @@ func (h *Handler) Profile(c echo.Context) error {
 		IsParticipant: false,
 	}
 
-	if !ValidateOrg(name) {
+	if !api.ValidateOrg(name) {
 		data.Name = name
 		data.IsParticipant = true
 	}

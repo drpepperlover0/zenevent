@@ -1,0 +1,47 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ZENEVENT: Theme Party</title>
+    </head>
+    <style>
+        body {
+            margin: 0;
+        }
+        header {
+            text-align: center;
+            background-color: #35123b;
+            padding: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: bisque;
+            font-size: 40;
+        }
+        .main-block {
+            margin: 0 auto;
+            text-align: center;
+            background-color: #70337a;
+            width: 80rem;
+            height: 80rem;
+            font-size: 25;
+        }
+    </style>
+    <body>
+        <header>
+            <a title="HOME PAGE" href="/">ZENEVENT: Theme Party</a>
+        </header>
+
+        <div class="main-block">
+            <div>
+                {{ range .Events }}
+                <div style="margin-bottom: 10px;">
+                    ~{{ .OrgName }}~ make an event which name is "{{ .EventName }}"
+                    <a title="JOIN TO EVENT" href="/events/join?theme=theme_party&event_id={{ .EventID }}">JOIN</a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+    </body>
+</html>
