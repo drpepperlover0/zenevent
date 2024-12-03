@@ -42,7 +42,7 @@ func InitRoutes() *echo.Echo {
 			{
 				login.POST("/organizer/check-org", authHandle.LoginCheckOrg) // localhost:8080/auth/login/organizer/check-org
 			}
-			
+
 		}
 		auth.GET("/logout", authHandle.LogOut)
 	}
@@ -70,6 +70,7 @@ func InitRoutes() *echo.Echo {
 	{
 		events.GET("/all", eventHandle.ShowEvents)
 		events.GET("/theme_party", eventHandle.ThemeParty)
+		events.GET("/quest", eventHandle.Quest)
 
 		events.GET("/make", eventHandle.MakeEventForm)
 		{

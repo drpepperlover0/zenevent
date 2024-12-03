@@ -1,9 +1,11 @@
 package events
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/drpepperlover0/internal/api"
 	"github.com/drpepperlover0/internal/structs"
@@ -44,7 +46,7 @@ func (h *EventHandler) Join(c echo.Context) error {
 		return c.Redirect(http.StatusSeeOther, "/events/"+themeRedirect)
 	}
 
-	return c.Redirect(http.StatusSeeOther, "/events/"+themeRedirect)
+	return c.Redirect(http.StatusSeeOther, "/events/all")
 }
 
 func (h *EventHandler) ThemeParty(c echo.Context) error {
@@ -52,6 +54,22 @@ func (h *EventHandler) ThemeParty(c echo.Context) error {
 	var tmp = template.Must(template.ParseFiles("internal/frontend/events/theme_party.html"))
 
 	events, err := storage.FindEvents("Theme Party")
+	if err != nil {
+		return c.String(http.StatusInternalServerError, err.Error())
+	}
+
+	return tmp.Execute(c.Response().Writer, struct{ Events []structs.Event }{Events: events})
+}
+
+func (h *EventHandler) Quest(c echo.Context) error {
+
+	var tmp = template.Must(template.ParseFiles("internal/frontend/events/quest.html"))
+
+	events, err := storage.FindEvents("Quest")
+	for _, event := range events {
+		event.EventDate = strings.Join(strings.Split(event.EventDate, "T"), " | ")
+		fmt.Println(event.EventDate)
+	}
 	if err != nil {
 		return c.String(http.StatusInternalServerError, err.Error())
 	}

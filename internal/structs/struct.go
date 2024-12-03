@@ -27,7 +27,7 @@ type Event struct {
 
 type EventMember struct {
 	EventID string `gorm:"column:event_id"`
-	UserID  uint   `gorm:"column:user_id;not null;unique"`
+	UserID  uint   `gorm:"column:user_id;not null"`
 }
 
 const (

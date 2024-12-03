@@ -33,7 +33,7 @@ func (h *EventHandler) MakeEvent(c echo.Context) error {
 	}
 
 	if !api.ValidateOrg(name) {
-		return c.String(http.StatusUnauthorized, "Access denied")
+		return c.Redirect(http.StatusSeeOther, "/auth/login/organizer")
 	}
 
 	event := structs.Event{

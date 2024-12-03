@@ -1,0 +1,45 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ZENEVENT: Quests</title>
+        <style>
+            body {
+                margin: 0;
+            }
+            header {
+                text-align: center;
+                background-color: #352208;
+                padding: 20px;
+            }
+            a {
+                text-decoration: none;
+                color: rgb(157, 98, 25);
+                font-size: 40;
+            }
+            .main-block {
+                margin: 0 auto;
+                text-align: center;
+                background-color: #4e2410;
+                width: 80rem;
+                height: 80rem;
+                font-size: 25;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a title="HOME PAGE" href="/">ZENEVENT: Quest</a>
+        </header>
+        <div class="main-block">
+            <div>
+                {{ range .Events }}
+                <div style="margin-bottom: 10px;">
+                    ~{{ .OrgName }}~ make an event which name is "{{ .EventName }}".<p>Date of event: {{ .EventDate }}</p>
+                    <a style="color: #af7524;display: block;margin-bottom: 30px;" title="JOIN TO EVENT" href="/events/join?theme=quest&event_id={{ .EventID }}">JOIN</a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </body>
+</html>
