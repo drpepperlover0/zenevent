@@ -4,25 +4,79 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LOGIN AS ORGANIZATION</title>
         <style>
-            header {
+            body {
                 margin: 0;
-                display: block;
-                text-align: center;
-                background-image: url("https://unsplash.com/photos/a-blue-sky-with-some-clouds--sTwytNnqWw");
-            }
-            div {
-                margin-bottom: 15px;
-                margin-top: 10px;
-            }
-            .home {
-                color: darkgreen;
-            }
-            a {
-                display: block;
-                margin-top: 10px;
-                text-decoration: none;
+                padding: 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(to right, rgb(230, 228, 250), rgb(93, 78, 195));
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
             }
 
+            header {
+                background-color: #ffffff;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                width: 340px;
+                text-align: center;
+            }
+
+            h2 {
+                margin-bottom: 24px;
+                color: rgb(93, 78, 195);
+            }
+
+            form input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0 16px 0;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                box-sizing: border-box;
+                transition: 0.3s;
+            }
+
+            form input[type="text"]:focus {
+                border-color: rgb(93, 78, 195);
+                outline: none;
+                box-shadow: 0 0 5px rgba(93, 78, 195, 0.5);
+            }
+
+            button {
+                background-color: rgb(93, 78, 195);
+                color: white;
+                padding: 10px;
+                width: 100%;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: rgb(76, 63, 170);
+            }
+
+            a {
+                display: block;
+                margin-top: 16px;
+                color: rgb(93, 78, 195);
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            .home {
+                font-weight: bold;
+                margin-top: 8px;
+            }
         </style>
     </head>
 
