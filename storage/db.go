@@ -76,6 +76,8 @@ func AddPart(user structs.User) error {
 		return err
 	}
 
+	log.Printf("Username: %s\n", user.Username)
+
 	return db.Table(structs.Role1 + "s").Create(&user).Error
 }
 
@@ -85,6 +87,8 @@ func AddOrg(org structs.Organizer) error {
 	if err != nil {
 		return err
 	}
+
+	log.Printf("Organization: %s\n", org.Name)
 
 	return db.Table(structs.Role2 + "s").Create(&org).Error
 }
