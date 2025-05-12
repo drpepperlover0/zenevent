@@ -4,61 +4,165 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
         <title>Zenevent - events planning service</title>
         <style>
+            :root {
+                --primary-color: #12343b;
+                --secondary-color: #c89666;
+                --bg-color: antiquewhite;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
             body {
                 margin: 0;
-                background-color: antiquewhite;
+                background-color: var(--bg-color);
+                font-family: "Sofia Sans", sans-serif;
             }
+
             header {
-                padding: 60px;
-                margin-top: 0;
-                background-color: #12343b;
+                padding: 2rem 1rem;
+                background-color: var(--primary-color);
+                position: relative;
             }
+
+            .header-container {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .logo {
+                font-family: "Sofia Sans", sans-serif;
+                font-weight: 800;
+                font-style: normal;
+                color: #c89666;
+                font-size: 2rem;
+                margin: 0;
+                text-decoration: none;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
             a {
-                font-family: "Gravitas One", serif;
+                font-family: "Sofia Sans", sans-serif;
                 font-weight: 400;
                 font-style: normal;
-                display: inline-block;
                 text-decoration: none;
-                color: #c89666;
-                font-size: 20px;
+                color: var(--secondary-color);
+                font-size: 1rem;
             }
-            .show-events, .profile, .sign-in, .info {
-                margin-left: 8rem;
+
+            a h2 {
+                margin: 0;
+                font-size: 1.2rem;
             }
-            .orgs {
-                font-size: 4rem;
-                margin-left: 20px;
-            }
+
             .marg-t {
                 margin-top: 2rem;
                 text-align: center;
+                padding: 0 1rem;
             }
 
+            .menu-toggle {
+                display: none;
+                background: none;
+                border: none;
+                color: var(--secondary-color);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 1rem;
+                    padding-top: 1rem;
+                }
+
+                .nav-links.active {
+                    display: flex;
+                }
+
+                .menu-toggle {
+                    display: block;
+                }
+
+                header {
+                    padding: 1rem;
+                }
+
+                .logo {
+                    font-size: 1.5rem;
+                }
+            }
+
+            @media (min-width: 769px) and (max-width: 1024px) {
+                .header-container {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .nav-links {
+                    margin-top: 1rem;
+                    gap: 1rem;
+                }
+            }
         </style>
     </head>
     <body>
         <header>
-            <a class="gravitas-one" href="/">
-                <h1>ZENEVENT<small><small><small> ෴</small></small></small></h1>
-            </a>
-            <a class="show-events" href="/events/all">
-                <h2>Events</h2>
-            </a>
+            <div class="header-container">
+                <a href="/" class="logo">
+                    <h1>ZENEVENT<small><small><small> ෴</small></small></small></h1>
+                </a>
 
-            <a class="info" href="/info/organizers/from-home"><h2>For organizers</h2></a>
+                <button class="menu-toggle">☰</button>
 
-            {{ if .IsLogin }}
-            <a href="/profile" class="profile"><h2>Profile</h2></a>
-            <a href="/auth/logout"><h2>/LogOut</h2></a>
-            {{ else }}
-            <a href="/auth/login/participant" class="sign-in"><h2>Sign In</h2></a>
-            {{ end }}
+                <div class="nav-links">
+                    <a class="show-events">
+                        <h2>События(в разработке)</h2>
+                    </a>
+                    <a class="info" href="/info/organizers/from-home">
+                        <h2>Организаторам</h2>
+                    </a>
+
+                    {{ if .IsLogin }}
+                    <a href="/profile" class="profile">
+                        <h2>Профиль</h2>
+                    </a>
+                    <a href="/auth/logout">
+                        <h2>Выйти</h2>
+                    </a>
+                    {{ else }}
+                    <a href="/auth/login/participant" class="sign-in">
+                        <h2>Войти</h2>
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
         </header>
         <div class="marg-t">
-            <a href="/events/all">ALL EVENTS</a>
+            <a>ВСЕ СОБЫТИЯ (в разработке)</a>
         </div>
+
+        <script>
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+        </script>
     </body>
 </html>

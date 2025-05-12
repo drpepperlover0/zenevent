@@ -80,31 +80,31 @@
                 margin-top: 8px;
             }
         </style>
-        <title>SIGN IN</title>
+        <title>ВХОД | Zenevent</title>
     </head>
     <body>
         <header>
             <div class="form_auth_block_content">
-                <h1>Sign In!</h1>
+                <h1>Добро пожаловать!</h1>
                 <form class="form_auth_style" action="/auth/login/participant/check" method="post">
                     <div class="username">
-                        <label>Your username:</label>
+                        <label>Ваш логин:</label>
                     </div>
 
-                    <input type="text" name="username" placeholder="Username" required >
+                    <input type="text" name="username" placeholder="Логин" required >
 
                     <div class="password">
-                        <label>Your password:</label>
+                        <label>Ваш пароль:</label>
                     </div>
 
-                    <input type="password" name="password" placeholder="Password"
+                    <input type="password" name="password" placeholder="Пароль"
                     maxlength="12" pattern=".{8,12}" required >
 
-                    <button class="form_auth_button" type="submit" name="auth_submit">LOGIN</button>
+                    <button class="form_auth_button" type="submit" name="auth_submit">Войти</button>
                 </form>
             </div>
 
-            <a href="/auth/register/participant">Don't have an account? Sign up!</a>
+            <a href="/auth/register/participant">Еще не создали аккаунт? Зарегистрируйте его!</a>
             <a class="home" href="/home">ZENEVENT</a>
         </header>
     </body>

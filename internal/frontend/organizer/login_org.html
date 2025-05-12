@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LOGIN AS ORGANIZATION</title>
+        <title>ВХОД ОРГАНИЗАЦИИ | Zenevent</title>
         <style>
             body {
                 margin: 0;
@@ -83,21 +83,20 @@
     <body>
         <header>
             <form action="/auth/login/organizer/check-org" method="post">
-                <h2>Login as organization</h2>
+                <h2>Добро пожаловать!</h2>
 
-                <label>Name of organization:</label>
+                <label>Имя организации:</label>
                 <div>
-                    <input name="org_name" type="text" placeholder="Enter the name" required>
+                    <input name="org_name" type="text" placeholder="Введите имя" required>
                 </div>
 
-                <label>Organization ID</label>
+                <label>ID организации</label>
                 <div>
-                    <input name="org_id" type="text" placeholder="Enter the ID" required>
+                    <input name="org_id" type="text" placeholder="Введите ID" required>
                 </div>
-                <button type="submit">LOGIN</button>
+                <button type="submit">ВХОД</button>
 
-
-                <a title="SIGN UP" href="/auth/register/organizer">Don't register your organization? Do it now!</a>
+                <a title="SIGN UP" href="/auth/register/organizer">Ваша организация еще не с нами? Регистрируйтесь!</a>
 
                 <a title="Zen of organization :D" class="home" href="/home">ZENEVENT</a>
             </form>

@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ORGANIZATION REGISTER</title>
+        <title>СТАНЬ ОРГАНИЗАТОРОМ | Zenevent</title>
         <style>
         body {
             margin: 0;
@@ -81,30 +81,28 @@
             font-weight: bold;
             margin-top: 8px;
         }
-
         </style>
     </head>
-
     <body>
         <header class="individual_auth">
             <form name="register_org" action="/auth/register/organizer/check-org" method="post">
 
-                <label>Your e-mail:</label>
-                <input type="text" name="ind_email" placeholder="Enter an e-mail" required>
+                <label>Ваш e-mail:</label>
+                <input type="text" name="ind_email" placeholder="example@gmail.com" required>
 
                 <div>
-                    <label>Name of organization:</label>
+                    <label>Имя организации:</label>
                 </div>
-                <input type="text" name="org_name" placeholder="Enter a name" required>
+                <input type="text" name="org_name" placeholder='ООО"ИмяОрганизации"' required>
 
                 <div>
-                    <label>ID of organization:</label>
+                    <label>ID организации:</label>
                 </div>
-                <input type="text" name="org_id" placeholder="Enter an ID" required>
-                    <button class="reg" type="submit">BE AN ORGANIZER</button>
+                <input type="text" name="org_id" placeholder="123456789" required>
+                    <button class="reg" type="submit">Стать организатором</button>
             </form>
 
-            <a href="/auth/login/organizer">Have a registered organization? Login!</a>
+            <a href="/auth/login/organizer">Ваша организация уже зарегистрирована? Войдите в нее!</a>
 
             <a class="home" title="HOME" href="/home">ZENEVENT</a>
         </header>

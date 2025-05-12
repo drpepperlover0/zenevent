@@ -14,6 +14,6 @@ func ValidateEmail(email string) bool {
 }
 
 func ValidateOrg(name string) bool {
-	regexName := regexp.MustCompile("^([А-Я]{3})[\"']([А-Я][а-яё]+[\"'])$")
+	regexName := regexp.MustCompile("^([А-Я]{2,3})[\"']([А-Я][а-яё]+(?:[А-Я][а-яё]+)?)[\"']$")
 	return regexName.MatchString(name)
 }

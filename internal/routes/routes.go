@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/drpepperlover0/internal/api"
-	"github.com/drpepperlover0/internal/api/events"
+	_ "github.com/drpepperlover0/internal/api/events"
 	"github.com/drpepperlover0/internal/api/home"
 	"github.com/labstack/echo/v4"
 )
@@ -13,7 +13,7 @@ func InitRoutes() *echo.Echo {
 
 	authHandle := api.NewAuthHandler()
 	homeHandle := home.NewHomeHandler()
-	eventHandle := events.NewEventHandler()
+	// eventHandle := events.NewEventHandler()
 
 	// ~~~~~~~~~~AUTH HANDLERS~~~~~~~~~~
 	auth := router.Group("/auth") // localhost:8080/auth
@@ -66,6 +66,7 @@ func InitRoutes() *echo.Echo {
 	// -------------------HOME HANDLERS-------------------
 
 	// ____________________EVENTS HANDLERS____________________
+	/*
 	events := router.Group("/events")
 	{
 		events.GET("/all", eventHandle.ShowEvents)
@@ -78,6 +79,7 @@ func InitRoutes() *echo.Echo {
 		}
 		events.GET("/join", eventHandle.Join)
 	}
+	*/
 	// ____________________EVENTS HANDLERS____________________
 
 	return router

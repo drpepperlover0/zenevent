@@ -2,69 +2,92 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Your Profile</title>
+        <title>ПРОФИЛЬ | Zenevent</title>
         <style>
-            .username, .org-name {
-                background-color: darkgreen;
-                margin: 0 auto;
-                width: 300;
-                height: 40;
-                font-size: 28;
-            }
-            .org-name {
-                width: 300;
-                height: 65;
-                margin: 0 auto;
-                background-color: darkslateblue;
-            }
-            .org, .part {
-                margin: 0 auto;
-                width: 500;
-                background-color: rgb(93, 78, 195);
-            }
-            .part {
-                width: 500;
-                margin: 0 auto;
-                background-color: green;
-            }
-            h4 {
-                font-size: 25;
-                height: 34;
-                width: 200;
-                background-color: darkgrey;
-                margin: 0 auto;
-            }
             body {
-                background-color: bisque;
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
             }
+
+            /* Общий стиль хедера */
             header {
-                text-align: center;
-                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                padding: 20px;
+                max-width: 700px;
+                margin: 40px auto;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             }
-            .member {
-                height: 150;
-                width: 120;
+
+            /* Стили для участника */
+            .participant-header {
+                background-color: #d4edda;
+                color: #155724;
             }
-            .organizer {
-                height: 150;
-                width: 160;
+
+            /* Стили для организатора */
+            .organizer-header {
+                background-color: #e6dcf5;
+                color: #4b0082;
+            }
+
+            img.member,
+            img.organizer {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin-right: 20px;
+                object-fit: cover;
+                border: 3px solid #ddd;
+            }
+
+            h2 {
+                margin: 0;
+                font-size: 22px;
+            }
+
+            h4 {
+                display: inline-block;
+                margin-left: 10px;
+                font-size: 14px;
+                font-weight: normal;
+                background-color: rgba(255, 255, 255, 0.5);
+                padding: 4px 8px;
+                border-radius: 8px;
+            }
+
+            h3.part,
+            h3.org {
+                margin: 8px 0 0;
+                font-size: 16px;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
         </style>
     </head>
     <body>
-        <header>
-            {{ if .IsParticipant }}
+        {{ if .IsParticipant }}
+        <header class="participant-header">
             <img class="member" src="https://www.ks.uiuc.edu/Services/Seminar/speakerimage/avatar.png" alt="Participant-image">
             <div>
-                <h2 class="username">Username: {{ .Name }}<h4>[Participant]</h4></h2>
-                <h3 class="part">Participated events: NULL</h3>
+                <h2 class="username">Имя пользователя: {{ .Name }}<h4>УЧАСТНИК</h4></h2>
+                <h3 class="part">Посещенные события: 0</h3>
             </div>
+        </header>
             {{ else }}
-            <img class="organizer" src="https://cdn1.iconfinder.com/data/icons/man-user-human-person-profile-business-avatar/100/17-1User-3-1024.png" alt="Organizer-image">
-            <div>
-                <h2 class="org-name">Name of organization: {{ .Name }}<h4>[Organization]</h4></h2>
-                <h3 class="org">Helded events: NULL</h3>
-            </div>
+        <header class="organizer-header">
+                <img class="organizer" src="https://cdn1.iconfinder.com/data/icons/man-user-human-person-profile-business-avatar/100/17-1User-3-1024.png" alt="Organizer-image">
+                <div>
+                    <h2 class="org-name">Имя организации: {{ .Name }}<h4>ОРГАНИЗАЦИЯ</h4></h2>
+                    <h3 class="org">Проведенные мероприятия: 0</h3>
+                </div>
             {{ end }}
         </header>
     </body>
